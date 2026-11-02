@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2> Search products</h2>
+<form method = "GET">
+    <input type = "text" name = "q" placeholder = "Search">
+    <button type = "submit">Search</button>
+</form>
+<table border = "1">
+    <tr>
+        <th>Product Name</th>
+        <th>Product ID</th>
+        <th>quantity</th>
+        <th>supplier Name</th>
+        <th>price</th>
+        <th>category</th>
+    </tr>
+    {% for f in flightmanage %}
+    <tr>
+        <td>{{ f.product_name }}</td>
+        <td>{{ f.product_id }}</td>
+        <td>{{ f.quantity }}</td>
+        <td>{{ f.supplier_name }}</td>
+        <td>{{ f.price }}</td>
+    </tr>
+     {% empty %}
+    <tr>
+        <td colspan="6">No books found</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

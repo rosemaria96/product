@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Delete product</h2>
+<p>Do you want to delete {{ flight.flight_name }} ?</p>
+<form method = "POST">
+    {% csrf_token %}
+    <button type ="submit">Delete Product</button>
+</form>
+
+<a href ="{% url 'flight_list' %}">Cancel</a>
+{% endblock %}
